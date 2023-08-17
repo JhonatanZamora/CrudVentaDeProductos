@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Aplicacion extends Application {
     private Stage primaryStage;
-
+//hinwoowvew
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
