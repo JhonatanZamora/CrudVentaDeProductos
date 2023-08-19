@@ -13,7 +13,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxcrudventas.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxcrudventas.Controller">
    <children>
       <TabPane layoutX="21.0" layoutY="13.0" prefHeight="526.0" prefWidth="741.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -41,18 +41,18 @@
                                     <TextField fx:id="txtNit" layoutX="455.0" layoutY="215.0" prefHeight="25.0" prefWidth="250.0" />
                                     <Label layoutX="390.0" layoutY="177.0" text="Email:" />
                                     <TextField fx:id="txtEmail" layoutX="455.0" layoutY="173.0" prefHeight="25.0" prefWidth="250.0" />
-                                    <Label layoutX="15.0" layoutY="219.0" text="Fecha Nasimiento:" />
+                                    <Label layoutX="15.0" layoutY="219.0" text="Fecha Nacimiento:" />
                                     <TextField fx:id="txtFechaNacimiento" layoutX="119.0" layoutY="215.0" prefHeight="25.0" prefWidth="250.0" />
                                     <SplitMenuButton fx:id="btnTipoPersona" layoutX="119.0" layoutY="173.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Normal" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" onAction="#NaturalAction" text="Natural" />
+                                        <MenuItem mnemonicParsing="false" onAction="#juridicoAction" text="Juridica" />
                                       </items>
                                     </SplitMenuButton>
                                     <Separator layoutX="14.0" layoutY="245.0" prefHeight="2.0" prefWidth="693.0" />
-                                    <Button fx:id="btnActualizar" layoutX="425.0" layoutY="253.0" mnemonicParsing="false" onAction="#actualizarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Actualizar" />
-                                    <Button fx:id="btnNuevo" layoutX="119.0" layoutY="253.0" mnemonicParsing="false" onAction="#nuevoClienteAction" prefHeight="25.0" prefWidth="115.0" text="Nuevo" />
-                                    <Button fx:id="btnAgregar" layoutX="273.0" layoutY="253.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Agregar" />
+                                    <Button fx:id="btnActualizarC" layoutX="456.0" layoutY="253.0" mnemonicParsing="false" onAction="#actualizarClienteAction" prefHeight="25.0" prefWidth="100.0" text="Actualizar" />
+                                    <Button fx:id="btnNuevoC" layoutX="119.0" layoutY="253.0" mnemonicParsing="false" onAction="#nuevoClienteAction" prefHeight="25.0" prefWidth="100.0" text="Nuevo" />
+                                    <Button fx:id="btnAgregarC" layoutX="267.0" layoutY="253.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="100.0" text="Agregar" />
                                     <Label layoutX="15.0" layoutY="177.0" prefHeight="17.0" prefWidth="96.0" text="Tipo de Persona:" />
                                  </children>
                               </AnchorPane>
@@ -68,11 +68,11 @@
                                           <TableColumn fx:id="columnTelefono" prefWidth="75.0" text="Telefono:" />
                                           <TableColumn fx:id="columnTipoPersona" prefWidth="75.0" text="Tipo de Persona" />
                                           <TableColumn fx:id="columnEmail" prefWidth="75.0" text="Email:" />
-                                          <TableColumn fx:id="columnFechaNacimiento" prefWidth="75.0" text="Fecha Nasimiento:" />
+                                          <TableColumn fx:id="columnFechaNacimiento" prefWidth="75.0" text="Fecha Nacimiento:" />
                                           <TableColumn fx:id="columnNit" prefWidth="75.0" text="Nit:" />
                                       </columns>
                                     </TableView>
-                                    <Button fx:id="btnEliminar" layoutX="295.0" layoutY="152.0" mnemonicParsing="false" onAction="#eliminarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Eliminar" />
+                                    <Button fx:id="btnEliminarC" layoutX="295.0" layoutY="152.0" mnemonicParsing="false" onAction="#eliminarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Eliminar" />
                                     <Separator layoutX="13.0" layoutY="30.0" prefHeight="2.0" prefWidth="693.0" />
                                     <Separator layoutX="6.0" layoutY="145.0" prefHeight="2.0" prefWidth="693.0" />
                                  </children>
@@ -103,27 +103,28 @@
                                     <TextField layoutX="513.0" layoutY="93.0" prefHeight="25.0" prefWidth="149.0" />
                                     <SplitMenuButton layoutX="27.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="289.0" text="Tipos de Producto">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text="Refrigerado" />
+                                        <MenuItem mnemonicParsing="false" text="Perecedero" />
+                                          <MenuItem mnemonicParsing="false" text="Envasado" />
                                       </items>
                                     </SplitMenuButton>
-                                    <Button fx:id="btnNuevo1" layoutX="135.0" layoutY="192.0" mnemonicParsing="false" onAction="#nuevoClienteAction" prefHeight="25.0" prefWidth="115.0" text="Nuevo" />
-                                    <Button fx:id="btnAgregar1" layoutX="295.0" layoutY="192.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Agregar" />
-                                    <Button fx:id="btnActualizar1" layoutX="463.0" layoutY="192.0" mnemonicParsing="false" onAction="#actualizarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Actualizar" />
+                                    <Button fx:id="btnNuevoP" layoutX="75.0" layoutY="192.0" mnemonicParsing="false" onAction="#nuevoProductoAction" prefHeight="25.0" prefWidth="100.0" text="Nuevo" />
+                                    <Button fx:id="btnAgregarP" layoutX="218.0" layoutY="192.0" mnemonicParsing="false" onAction="#agregarProductoAction" prefHeight="25.0" prefWidth="100.0" text="Agregar" />
+                                    <Button fx:id="btnActualizarP" layoutX="413.0" layoutY="192.0" mnemonicParsing="false" onAction="#actualizarProductoAction" prefHeight="25.0" prefWidth="100.0" text="Actualizar" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <TableView layoutX="14.0" layoutY="18.0" prefHeight="163.0" prefWidth="694.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Codigo" />
-                                        <TableColumn prefWidth="75.0" text="Nombre" />
-                                          <TableColumn prefWidth="96.0" text="Valor Unitario" />
-                                          <TableColumn prefWidth="143.0" text="Cantidad en Existencia" />
-                                          <TableColumn minWidth="0.0" prefWidth="109.0" text="Tipo Producto" />
+                                        <TableColumn fx:id="columnCodigo" prefWidth="75.0" text="Codigo" />
+                                        <TableColumn fx:id="columnNombreProducto" prefWidth="75.0" text="Nombre" />
+                                          <TableColumn fx:id="columnValorUnitario" prefWidth="96.0" text="Valor Unitario" />
+                                          <TableColumn fx:id="columnCantidadExistencia" prefWidth="143.0" text="Cantidad en Existencia" />
+                                          <TableColumn fx:id="columnTipoProducto" minWidth="0.0" prefWidth="109.0" text="Tipo Producto" />
                                       </columns>
                                     </TableView>
-                                    <Button fx:id="btnEliminar1" layoutX="302.0" layoutY="197.0" mnemonicParsing="false" onAction="#eliminarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Eliminar" />
+                                    <Button fx:id="btnEliminarP" layoutX="302.0" layoutY="197.0" mnemonicParsing="false" onAction="#eliminarProductoAction" prefHeight="25.0" prefWidth="115.0" text="Eliminar" />
                                  </children></AnchorPane>
                           </items>
                         </SplitPane>
@@ -156,9 +157,9 @@
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </SplitMenuButton>
-                                    <Button fx:id="btnAgregar11" layoutX="270.0" layoutY="178.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Agregar" />
-                                    <Button fx:id="btnAgregar111" layoutX="90.0" layoutY="178.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Nueva venta" />
-                                    <Button fx:id="btnAgregar112" layoutX="440.0" layoutY="178.0" mnemonicParsing="false" onAction="#agregarClienteAction" prefHeight="25.0" prefWidth="115.0" text="Gestionar Transacción" />
+                                    <Button fx:id="btnAgregar11" layoutX="270.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Agregar" />
+                                    <Button fx:id="btnAgregar111" layoutX="92.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Nueva venta" />
+                                    <Button fx:id="btnAgregar112" layoutX="460.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="Gestionar Transacción" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

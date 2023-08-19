@@ -19,16 +19,16 @@ public class Controller {
     private URL location;
 
     @FXML
-    private Button btnActualizar;
+    private Button btnActualizarC;
 
     @FXML
-    private Button btnAgregar;
+    private Button btnAgregarC;
 
     @FXML
-    private Button btnEliminar;
+    private Button btnEliminarC;
 
     @FXML
-    private Button btnNuevo;
+    private Button btnNuevoC;
 
     @FXML
     private SplitMenuButton btnTipoPersona;
@@ -87,6 +87,34 @@ public class Controller {
     @FXML
     private TextField txtTelefono;
 
+
+    @FXML
+    private Button btnActualizarP;
+
+    @FXML
+    private Button btnAgregarP;
+
+    @FXML
+    private Button btnEliminarP;
+
+    @FXML
+    private Button btnNuevoP;
+    @FXML
+    private TableColumn<?, ?> columCodigo;
+
+    @FXML
+    private TableColumn<?, ?> columnNombreProducto;
+
+    @FXML
+    private TableColumn<?,?> columnValorUnitario;
+
+    @FXML
+    private TableColumn<?,?> columnCantidadExistencia;
+
+    @FXML
+    private TableColumn<?,?> columnTipoProducto;
+
+
     @FXML
     void actualizarClienteAction(ActionEvent event) {
 
@@ -108,11 +136,37 @@ public class Controller {
     }
 
     @FXML
+    void NaturalAction(ActionEvent event){
+
+    }
+    @FXML
+    void juridicoAction(ActionEvent event){
+
+    }
+
+    @FXML
+    void agregarProductoAction(ActionEvent event){
+
+    }
+    @FXML
+    void actualizarProductoAction(ActionEvent event){
+
+    }
+    @FXML
+    void nuevoProductoAction(ActionEvent event){
+
+    }
+    @FXML
+    void eliminarProductoAction(ActionEvent event){
+
+    }
+
+    @FXML
     void initialize() {
-        assert btnActualizar != null : "fx:id=\"btnActualizar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnAgregar != null : "fx:id=\"btnAgregar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnEliminar != null : "fx:id=\"btnEliminar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnNuevo != null : "fx:id=\"btnNuevo\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
+        assert btnActualizarC != null : "fx:id=\"btnActualizar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
+        assert btnAgregarC != null : "fx:id=\"btnAgregar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
+        assert btnEliminarC != null : "fx:id=\"btnEliminar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
+        assert btnNuevoC != null : "fx:id=\"btnNuevo\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
         assert btnTipoPersona != null : "fx:id=\"btnTipoPersona\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
         assert columIdentificacion != null : "fx:id=\"columIdentificacion\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
         assert columnApellido != null : "fx:id=\"columnApellido\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
