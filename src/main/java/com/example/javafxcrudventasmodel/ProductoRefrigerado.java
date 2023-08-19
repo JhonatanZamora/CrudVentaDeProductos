@@ -1,6 +1,6 @@
 package com.example.javafxcrudventasmodel;
 
-public class ProductoRefrigerado {
+public class ProductoRefrigerado extends Producto{
 
     private String codigoAprobacion="";
     private int temperaturaRefrigerado=0;

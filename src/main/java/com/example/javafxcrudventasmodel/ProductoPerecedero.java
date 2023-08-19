@@ -1,6 +1,6 @@
 package com.example.javafxcrudventasmodel;
 
-public class ProductoPerecedero {
+public class ProductoPerecedero extends Producto {
     private String fechaVencimiento="";
     public ProductoPerecedero (){}
 
