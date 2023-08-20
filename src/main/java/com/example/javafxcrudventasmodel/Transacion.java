@@ -1,9 +1,9 @@
 package com.example.javafxcrudventasmodel;
 
-public class trasacion extends Producto{
+public class Transacion extends Producto{
  private final  double IVA=0.19;
 
-
-
+ public Transacion ()
+ {}
 
 }
