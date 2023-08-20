@@ -1,6 +1,10 @@
 package com.example.modelo;
 
 public class Cliente {
+    private String tipoPersona ="";
+
+
+
     private String nombre ="";
     private String apellido="";
     private String identificacion="";
@@ -61,6 +65,13 @@ public class Cliente {
 
     public String getEmail() {
         return email;
+    }
+    public String getTipoPersona() {
+        return tipoPersona;
+    }
+
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
     }
 
     public void setEmail(String email) {
