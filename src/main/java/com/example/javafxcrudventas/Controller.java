@@ -2,6 +2,8 @@ package com.example.javafxcrudventas;
 
         import java.net.URL;
         import java.util.ResourceBundle;
+
+        import com.example.modelo.Cliente;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.scene.control.Button;
@@ -9,6 +11,8 @@ package com.example.javafxcrudventas;
         import javafx.scene.control.TableColumn;
         import javafx.scene.control.TableView;
         import javafx.scene.control.TextField;
+        import javax.swing.*;
+
 
 public class Controller {
 
@@ -122,7 +126,7 @@ public class Controller {
 
     @FXML
     void agregarClienteAction(ActionEvent event) {
-
+        
     }
 
     @FXML

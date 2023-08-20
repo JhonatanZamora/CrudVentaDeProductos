@@ -1,4 +1,4 @@
-package com.example.javafxcrudventasmodel;
+package com.example.modelo;
 
 public class Venta {
     private  double totalCompra=0;

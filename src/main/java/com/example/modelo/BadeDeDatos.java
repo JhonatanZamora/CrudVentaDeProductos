@@ -1,4 +1,4 @@
-package com.example.javafxcrudventasmodel;
+package com.example.modelo;
 
 import java.util.ArrayList;
 import java.util.Stack;

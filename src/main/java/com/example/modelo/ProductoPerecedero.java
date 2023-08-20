@@ -1,4 +1,4 @@
-package com.example.javafxcrudventasmodel;
+package com.example.modelo;
 
 public class ProductoPerecedero extends Producto {
     private String fechaVencimiento="";
