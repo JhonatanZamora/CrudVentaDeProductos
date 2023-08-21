@@ -1,6 +1,15 @@
-package com.example.javafxcrudventasmodel;
+package com.example.modelo;
 
 public class Cliente {
+    public String getTipoPersona() {
+        return tipoPersona;
+    }
+
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
+    }
+
+    private String tipoPersona="";
     private String nombre ="";
     private String apellido="";
     private String identificacion="";
