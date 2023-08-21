@@ -1,18 +1,23 @@
 package com.example.modelo;
 
 public class ProductoEnvasado extends Producto {
-    private String fechaEnvasado="";
-    private double pesoEnvase=0;
-    private String paisOrigen="";
-    public ProductoEnvasado (){}
-    public boolean validarPais (String pais)
-    {
-        boolean centinela=false;
-        if (pais.equals("colombia") || pais.equals("argentina"))
-        {
-            centinela=true;
-        }
-        return centinela;
+    private String fechaEnvasado;
+    private double pesoEnvase;
+    private static PaisOrigen paisOrigen;
+
+    public ProductoEnvasado(String codigo, String nombreProducto, String descripcionProducto,
+                            double valorUnitario, int cantidadExistencia, TipoProducto tipoProducto,
+                            String fechaEnvasado, double pesoEnvase, PaisOrigen paisOrigen) {
+        super(codigo, nombreProducto, descripcionProducto, valorUnitario, cantidadExistencia, tipoProducto);
+        this.fechaEnvasado = fechaEnvasado;
+        this.pesoEnvase = pesoEnvase;
+        this.paisOrigen = paisOrigen;
+    }
+
+    public ProductoEnvasado() {
+        fechaEnvasado = "";
+        pesoEnvase = 0;
+        paisOrigen = paisOrigen;
     }
 
     public String getFechaEnvasado() {
@@ -31,11 +36,26 @@ public class ProductoEnvasado extends Producto {
         this.pesoEnvase = pesoEnvase;
     }
 
-    public String getPaisOrigen() {
+    public static PaisOrigen getPaisOrigen() {
         return paisOrigen;
     }
 
-    public void setPaisOrigen(String paisOrigen) {
-        this.paisOrigen = paisOrigen;
+    public static void setPaisOrigen(PaisOrigen paisOrigen) {
+        ProductoEnvasado.paisOrigen = paisOrigen;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString() + "\nFecha envasado: " + fechaEnvasado
+                + "\nPeso envase: " + pesoEnvase + "\nPaís de origen: " + paisOrigen.getPaisOrigen();
+    }
+
+    public boolean validarPais(String pais) {
+        boolean centinela = false;
+        if (pais.equals("colombia") || pais.equals("argentina")) {
+            centinela = true;
+        }
+        return centinela;
+    }
+
 }

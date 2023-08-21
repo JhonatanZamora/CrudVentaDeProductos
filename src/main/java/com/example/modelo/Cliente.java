@@ -1,24 +1,33 @@
 package com.example.modelo;
 
 public class Cliente {
-    public String getTipoPersona() {
-        return tipoPersona;
+
+    private String nombre;
+    private String apellido;
+    private String identificacion;
+    private String direccion;
+    private String telefono;
+
+    private static TipoCliente tipoCliente;
+
+    public Cliente(String nombre, String apellido, String identificacion,
+                   String direccion, String telefono, TipoCliente tipoCliente) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.identificacion = identificacion;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.tipoCliente = tipoCliente;
     }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public Cliente() {
+        nombre = "";
+        apellido = "";
+        identificacion = "";
+        direccion = "";
+        telefono = "";
+        tipoCliente = tipoCliente;
     }
-
-    private String tipoPersona="";
-    private String nombre ="";
-    private String apellido="";
-    private String identificacion="";
-    private int edad=0;
-    private String direccion="";
-    private String telefono="";
-    private String email ="";
-
-    public Cliente (){}
 
     public String getNombre() {
         return nombre;
@@ -44,14 +53,6 @@ public class Cliente {
         this.identificacion = identificacion;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -68,16 +69,26 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public static TipoCliente getTipoCliente() {
+        return tipoCliente;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static void setTipoCliente(TipoCliente tipoCliente) {
+        Cliente.tipoCliente = tipoCliente;
     }
-    public boolean validarIdentificacion()
-    {
-        boolean centinela=false;
+
+    @Override
+    public String toString() {
+        return  "Nombre: " + nombre  +
+                "\nApellido: " + apellido +
+                "\nIdentificacion: " + identificacion +
+                "\nDireccion: " + direccion +
+                "\nTelefono: " + telefono +
+                "\nTipo de cliente: " + tipoCliente.getTipoCliente();
+    }
+
+    public boolean validarIdentificacion() {
+        boolean centinela = false;
         return centinela;
     }
 }

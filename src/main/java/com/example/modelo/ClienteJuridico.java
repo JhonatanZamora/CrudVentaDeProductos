@@ -1,15 +1,18 @@
 package com.example.modelo;
 
 public class ClienteJuridico extends Cliente {
-    String numeroNit="";
-    public ClienteJuridico(){}
+   private String nit;
 
-    public String getNumeroNit() {
-        return numeroNit;
+    public ClienteJuridico(String nombre, String apellido, String identificacion, String direccion, String telefono, TipoCliente tipoCliente, String nit) {
+        super(nombre, apellido, identificacion, direccion, telefono, tipoCliente);
+        this.nit = nit;
     }
 
-    public void setNumeroNit(String numeroNit) {
-        this.numeroNit = numeroNit;
+    public ClienteJuridico() {
+      nit = " " ;
+    }
+    public String toString() {
+        return  super.toString() + "\nNit: " + nit;
     }
 
     public boolean validarNit ()

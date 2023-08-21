@@ -1,10 +1,21 @@
 package com.example.modelo;
 
 public class ProductoRefrigerado extends Producto{
+    private String codigoAprobacion;
+    private String temperaturaRefrigerado;
 
-    private String codigoAprobacion="";
-    private int temperaturaRefrigerado=0;
-    public ProductoRefrigerado () {}
+    public ProductoRefrigerado(String codigo, String nombreProducto, String descripcionProducto,
+                               double valorUnitario, int cantidadExistencia, TipoProducto tipoProducto,
+                               String codigoAprobacion, String temperaturaRefrigerado) {
+        super(codigo, nombreProducto, descripcionProducto, valorUnitario, cantidadExistencia, tipoProducto);
+        this.codigoAprobacion = codigoAprobacion;
+        this.temperaturaRefrigerado = temperaturaRefrigerado;
+    }
+
+    public ProductoRefrigerado() {
+        codigoAprobacion = "";
+        temperaturaRefrigerado = "" ;
+    }
 
     public String getCodigoAprobacion() {
         return codigoAprobacion;
@@ -14,9 +25,15 @@ public class ProductoRefrigerado extends Producto{
         this.codigoAprobacion = codigoAprobacion;
     }
 
-    public int getTemperaturaRefrigerado() {
+    public String getTemperaturaRefrigerado() {
         return temperaturaRefrigerado;
     }
 
-    public void setTemperaturaRefrigerado(int temperaturaRefrigerado) { this.temperaturaRefrigerado = temperaturaRefrigerado; }
+    public void setTemperaturaRefrigerado(String temperaturaRefrigerado) {
+        this.temperaturaRefrigerado = temperaturaRefrigerado;
+    }
+    public String toString() {
+        return super.toString() + "\nCodigo de aprobacion: " + codigoAprobacion +
+                "\nTemperatura refrigerado: " + temperaturaRefrigerado;
+    }
 }

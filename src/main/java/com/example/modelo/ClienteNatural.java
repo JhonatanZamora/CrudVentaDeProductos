@@ -1,17 +1,19 @@
 package com.example.modelo;
-
 public class ClienteNatural extends Cliente {
-    private String email ="";
-    private String fechaNacimiento="";
+    private String email;
+    private String fechaNacimiento;
 
-    public ClienteNatural() {}
+    public ClienteNatural(String nombre, String apellido, String identificacion,
+                          String direccion, String telefono, TipoCliente tipoCliente, String email, String fechaNacimiento) {
+        super(nombre, apellido, identificacion, direccion, telefono, tipoCliente);
+        this.email = email;
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
-    @Override
     public String getEmail() {
         return email;
     }
 
-    @Override
     public void setEmail(String email) {
         this.email = email;
     }
@@ -22,5 +24,15 @@ public class ClienteNatural extends Cliente {
 
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nEmail: " + email + "\nFecha de nacimineto: " + fechaNacimiento;
+    }
+
+    public ClienteNatural() {
+        this.email = "";
+        this.fechaNacimiento = "";
     }
 }
