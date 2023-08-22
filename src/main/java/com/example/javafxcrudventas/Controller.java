@@ -68,6 +68,8 @@ public class Controller {
     @FXML
     private SplitMenuButton btnTipoProducto;
 
+
+
     @FXML
     private TableColumn<Cliente, String> columDireccion;
 
@@ -99,6 +101,9 @@ public class Controller {
     private TableView<Cliente> tableClientes;
 
     @FXML
+    private TextField txtNombre;
+
+    @FXML
     private TextField txtApellido;
 
     @FXML
@@ -126,13 +131,25 @@ public class Controller {
     private TextField txtNit;
 
     @FXML
-    private TextField txtNombre;
+    private TextField txtNombreProducto;
 
     @FXML
     private TextField txtTelefono;
 
     @FXML
     private TextField txtValorUnitario;
+
+    @FXML
+    private TextField txtCodigoP;
+
+    @FXML
+    private TextField txtFecha;
+
+    @FXML
+    private TextField txtCantidadProductos;
+
+    @FXML
+    private TextField txtIdCliente;
 
     @FXML
     void initialize() {

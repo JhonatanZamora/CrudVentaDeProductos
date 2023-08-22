@@ -4,6 +4,8 @@ public class DetalleVenta extends Producto{
 
  private int cantidadProductos=0;
 
+ private String ProductoVendido="";
+
  private double subtotal=0.0;
 
 
@@ -22,5 +24,13 @@ public class DetalleVenta extends Producto{
 
  public void setSubtotal(double subtotal) {
   this.subtotal = subtotal;
+ }
+
+ public String getProductoVendido() {
+  return ProductoVendido;
+ }
+
+ public void setProductoVendido(String productoVendido) {
+  ProductoVendido = productoVendido;
  }
 }
