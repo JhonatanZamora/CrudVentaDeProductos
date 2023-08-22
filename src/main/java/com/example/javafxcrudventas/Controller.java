@@ -1,6 +1,9 @@
 package com.example.javafxcrudventas;
 
 import com.example.modelo.Cliente;
+import com.example.modelo.DetalleVenta;
+import com.example.modelo.Producto;
+import com.example.modelo.Venta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +18,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
     Aplicacion aplicacion;
+
+    Venta ventas = new Venta();
+
+    DetalleVenta detalleVenta = new DetalleVenta();
     ObservableList<Cliente> listaClientesData = FXCollections.observableArrayList();
+
+    ObservableList<Venta> listaVentas = FXCollections.observableArrayList();
+
+    ObservableList<DetalleVenta> listadetalles = FXCollections.observableArrayList();
+
+    ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
 
     @FXML
     private Button EliminarProducto;
@@ -101,6 +114,38 @@ public class Controller {
     private TableView<Cliente> tableClientes;
 
     @FXML
+    private TableColumn<Venta, String> columnClienteV;
+
+    @FXML
+    private TableColumn<Venta, String> columnCodigoProductoV;
+
+    @FXML
+    private TableColumn<Venta, String> columnIVA;
+
+    @FXML
+    private TableColumn<Venta, String> columnTotal;
+
+    @FXML
+    private TableColumn<Venta, String> columnFecha;
+
+    @FXML
+    private TableColumn<Venta, DetalleVenta> columnDetalles;
+
+    @FXML
+    private TableColumn<Venta, DetalleVenta> columnCantidad;
+
+    @FXML
+    private TableColumn<Venta, DetalleVenta> columnProductoV;
+
+    @FXML
+    private TableColumn<Venta, DetalleVenta> columnSubtotal;
+
+    @FXML
+    private TableView<Venta> tableVenta;
+
+    @FXML
+    private TableView<DetalleVenta> tableDetalleVenta;
+    @FXML
     private TextField txtNombre;
 
     @FXML
@@ -161,7 +206,28 @@ public class Controller {
         this.columTipoPersona.setCellValueFactory(new PropertyValueFactory<>("tipoCliente"));
 
         tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+
+
         });
+        this.columnClienteV.setCellValueFactory(new PropertyValueFactory<>("Cliente"));
+        this.columnCodigoProductoV.setCellValueFactory(new PropertyValueFactory<>("Codigo Producto"));
+        this.columnIVA.setCellValueFactory(new PropertyValueFactory<>("IVA"));
+        this.columnTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
+        this.columnFecha.setCellValueFactory(new PropertyValueFactory<>("Fecha"));
+
+        this.columnCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        this.columnProductoV.setCellValueFactory(new PropertyValueFactory<>("Producto"));
+        this.columnSubtotal.setCellValueFactory(new PropertyValueFactory<>("Subtotal"));
+
+        tableVenta.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+
+
+        });
+        tableDetalleVenta.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+
+
+        });
+
 
 
     }
@@ -193,6 +259,20 @@ public class Controller {
 
     @FXML
     void agregarTransaccionAction(ActionEvent event) {
+        ventas.setCodigoP(txtCodigoP.getText());
+        ventas.setFecha(txtFecha.getText());
+        ventas.obtenerClientev(txtIdCliente.getText(),listaClientesData);
+        detalleVenta.setCantidadProductos(Integer.parseInt(txtCantidadProductos.getText()));
+        detalleVenta.calcularSubtotal(ventas.getCodigoP(), listaProductos);
+        ventas.calcularIvaAplicado(detalleVenta.getSubtotal());
+        detalleVenta.setCantidadProductos(Integer.parseInt(txtCantidadProductos.getText()));
+        ventas.calcularTotalCompra(detalleVenta.getSubtotal());
+        detalleVenta.setProductoVendido(ventas.getCodigoP(), listaProductos);
+        listaVentas.add(ventas);
+        listadetalles.add(detalleVenta);
+
+        tableVenta.setItems(listaVentas);
+        tableDetalleVenta.setItems(listadetalles);
 
     }
 
@@ -208,7 +288,7 @@ public class Controller {
 
     @FXML
     void eliminarTransaccionAction(ActionEvent event) {
-
+        
     }
 
     @FXML

@@ -162,16 +162,16 @@
                                  <children>
                                     <TableView layoutX="8.0" layoutY="8.0" prefHeight="175.0" prefWidth="709.0">
                                       <columns>
-                                        <TableColumn prefWidth="113.0" text="Cliente" />
-                                        <TableColumn prefWidth="107.0" text="Codigo Producto" />
-                                          <TableColumn minWidth="2.0" prefWidth="89.0" text="IVA" />
-                                          <TableColumn prefWidth="90.0" text="Total" />
-                                          <TableColumn prefWidth="103.0" text="Fecha" />
-                                          <TableColumn prefWidth="281.0" text="Detalles">
+                                        <TableColumn fx:id="columnClienteV" prefWidth="113.0" text="Cliente" />
+                                        <TableColumn fx:id="columnCodigoProductoV" prefWidth="107.0" text="Codigo Producto" />
+                                          <TableColumn fx:id="columnIVA" minWidth="2.0" prefWidth="89.0" text="IVA" />
+                                          <TableColumn fx:id="columnTotal" prefWidth="90.0" text="Total" />
+                                          <TableColumn fx:id="columnFecha" prefWidth="103.0" text="Fecha" />
+                                          <TableColumn fx:id="columnDetalles" prefWidth="281.0" text="Detalles">
                                              <columns>
-                                                <TableColumn prefWidth="54.0" text="cantidad" />
-                                                <TableColumn prefWidth="76.0" text="Producto" />
-                                                <TableColumn prefWidth="75.0" text="Subtotal" />
+                                                <TableColumn fx:id="columnCantidad" prefWidth="54.0" text="cantidad" />
+                                                <TableColumn fx:id="columnProductoV" prefWidth="76.0" text="Producto" />
+                                                <TableColumn fx:id="columnSubtotal" prefWidth="75.0" text="Subtotal" />
                                              </columns></TableColumn>
                                       </columns>
                                     </TableView>

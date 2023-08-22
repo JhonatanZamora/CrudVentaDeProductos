@@ -1,10 +1,14 @@
 package com.example.modelo;
 
+import javafx.collections.ObservableList;
+
+import javax.swing.*;
+
 public class DetalleVenta extends Producto{
 
  private int cantidadProductos=0;
 
- private String ProductoVendido="";
+ private String productoVendido ="";
 
  private double subtotal=0.0;
 
@@ -22,15 +26,37 @@ public class DetalleVenta extends Producto{
   return subtotal;
  }
 
- public void setSubtotal(double subtotal) {
-  this.subtotal = subtotal;
+ public void calcularSubtotal(String product, ObservableList<Producto> p) {
+  int i= encontrari(product,p);
+  if(i==-1){
+   JOptionPane.showMessageDialog(null,"Ingrese bien el codigo de producto");
+  }
+ else{
+  subtotal=p.get(i).getValorUnitario()*cantidadProductos;
+  }
  }
+
+ public int encontrari(String product, ObservableList<Producto> p){
+  int j=-1;
+  for(int i=0;i<p.size();i++){
+   if(p.get(i).getCodigo().equals(product)){
+    j=i;
+    i=p.size();
+   }
+ }
+ return j;}
 
  public String getProductoVendido() {
-  return ProductoVendido;
+  return productoVendido;
  }
 
- public void setProductoVendido(String productoVendido) {
-  ProductoVendido = productoVendido;
+ public void setProductoVendido(String product,ObservableList<Producto> p) {
+  int i=encontrari(product,p);
+  if(i==-1){
+   JOptionPane.showMessageDialog(null,"Ingrese bien el codigo de producto");
+  }
+  else{
+   productoVendido= p.get(i).getNombreProducto();
+  }
  }
 }

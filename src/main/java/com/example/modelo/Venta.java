@@ -1,12 +1,15 @@
 package com.example.modelo;
 
+import javafx.collections.ObservableList;
+
+import javax.swing.*;
+
 public class Venta {
     private String codigoP="";
     private String clientev="";
     private  double totalCompra=0;
     private double iva=0;
     private String detallesDeLaCompra="";
-
     private String fecha="";
     public Venta (){}
     public void calcularIvaAplicado (double subt){
@@ -54,8 +57,16 @@ public class Venta {
         return clientev;
     }
 
-    public void setClientev(String clientev) {
-        this.clientev = clientev;
+    public void obtenerClientev(String id, ObservableList<Cliente> c) {
+        for(int i=0;i<c.size();i++){
+            if(id.equals(c.get(i).getIdentificacion())){
+                clientev=c.get(i).getNombre();
+                i=c.size();
+            }
+        }
+        if(clientev.equals("")){
+            JOptionPane.showMessageDialog(null,"ingrese bien la identificacion");
+        }
     }
 
     public String getFecha() {
