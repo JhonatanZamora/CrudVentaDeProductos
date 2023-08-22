@@ -1,18 +1,21 @@
 package com.example.modelo;
 
 public class Venta {
+    private String codigoP="";
+    private String clientev="";
     private  double totalCompra=0;
     private double iva=0;
     private String detallesDeLaCompra="";
+
+    private String fecha="";
     public Venta (){}
-    public double calcularIvaAplicado (){
-        double centinela=0;
-        return centinela;
+    public void calcularIvaAplicado (double subt){
+
+        this.iva=subt*0.19;
     }
-    public double calcularTotalCompra ()
-    {
-        double centinela=0;
-        return centinela;
+    public void calcularTotalCompra (double subt) {
+
+        this.totalCompra=subt+iva;
     }
 
     public double getTotalCompra() {
@@ -37,5 +40,29 @@ public class Venta {
 
     public void setDetallesDeLaCompra(String detallesDeLaCompra) {
         this.detallesDeLaCompra = detallesDeLaCompra;
+    }
+
+    public String getCodigoP() {
+        return codigoP;
+    }
+
+    public void setCodigoP(String codigoP) {
+        this.codigoP = codigoP;
+    }
+
+    public String getClientev() {
+        return clientev;
+    }
+
+    public void setClientev(String clientev) {
+        this.clientev = clientev;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
