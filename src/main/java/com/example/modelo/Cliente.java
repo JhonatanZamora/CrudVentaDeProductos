@@ -8,7 +8,7 @@ public class Cliente {
     private String direccion;
     private String telefono;
 
-    private static TipoCliente tipoCliente;
+    private  TipoCliente tipoCliente;
 
     public Cliente(String nombre, String apellido, String identificacion,
                    String direccion, String telefono, TipoCliente tipoCliente) {
@@ -69,12 +69,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public static TipoCliente getTipoCliente() {
+    public  TipoCliente getTipoCliente() {
         return tipoCliente;
     }
 
-    public static void setTipoCliente(TipoCliente tipoCliente) {
-        Cliente.tipoCliente = tipoCliente;
+    public  void setTipoCliente(TipoCliente tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     @Override

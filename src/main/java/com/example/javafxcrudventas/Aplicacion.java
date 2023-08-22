@@ -1,17 +1,22 @@
 package com.example.javafxcrudventas;
 
+import com.example.modelo.Almacen;
+import com.example.modelo.Cliente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import java.util.ArrayList;
 
 import java.io.IOException;
 
 
 public class Aplicacion extends Application {
+    
     private Stage primaryStage;
-//hinwoowvew
+    Almacen almacen = new Almacen("Almacen");
+
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -25,6 +30,8 @@ public class Aplicacion extends Application {
             loader = new FXMLLoader();
             loader.setLocation(Aplicacion.class.getResource("EmpresaVentaProductosView.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
+            Controller controller = loader.getController();
+            controller.setAplicacion(this);
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -36,5 +43,10 @@ public class Aplicacion extends Application {
     public static void main(String[] args) {
 
         launch(args);
+    }
+
+    public  ArrayList<Cliente> obtenerClientes() {
+        return almacen.getListaClientes();
+
     }
 }

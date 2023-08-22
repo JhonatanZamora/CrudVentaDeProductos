@@ -1,88 +1,114 @@
 package com.example.javafxcrudventas;
 
-        import java.net.URL;
-        import java.util.ResourceBundle;
-
-        import com.example.modelo.*;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.scene.control.*;
-        import javafx.scene.control.cell.PropertyValueFactory;
-
-        import javax.swing.*;
-
+import com.example.modelo.Cliente;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
-    private  ObservableList<ClienteNatural> clienteNaturalBd;
-    private  ObservableList<ClienteJuridico> clienteJuridicoBd;
-    private  ObservableList<ProductoPerecedero> productoPerecederoBd;
-    private  ObservableList<ProductoEnvasado> productoEnvasadoBd;
-    private  ObservableList<ProductoRefrigerado> productoRefrigeradoBd ;
-    Transacion transaciones ;
-    ClienteNatural natural;
-    ClienteJuridico clienteJuridico;
-    ProductoEnvasado envasado ;
-    ProductoPerecedero perecedero ;
-    ProductoRefrigerado refrigerado ;
-
+    Aplicacion aplicacion;
+    ObservableList<Cliente> listaClientesData = FXCollections.observableArrayList();
 
     @FXML
-    private ResourceBundle resources;
+    private Button EliminarProducto;
 
     @FXML
-    private URL location;
+    private MenuItem btn;
 
     @FXML
-    private Button btnActualizarC;
+    private Button btnActualizarCliente;
 
     @FXML
-    private Button btnAgregarC;
+    private Button btnActualizarProducto;
 
     @FXML
-    private Button btnEliminarC;
+    private Button btnAgregarCliente;
 
     @FXML
-    private Button btnNuevoC;
+    private Button btnAgregarProducto;
+
+    @FXML
+    private Button btnAgregarTransaccion;
+
+    @FXML
+    private Button btnEliminarCliente;
+
+    @FXML
+    private Button btnEliminarTrasaccion;
+
+    @FXML
+    private Button btnGestionaTransaccion;
+
+    @FXML
+    private MenuItem btnJuridica;
+
+    @FXML
+    private MenuItem btnNatural;
+
+    @FXML
+    private Button btnNuevaVenta;
+
+    @FXML
+    private Button btnNuevoCliente;
+
+    @FXML
+    private Button btnNuevoProducto;
 
     @FXML
     private SplitMenuButton btnTipoPersona;
 
     @FXML
-    private TableColumn columIdentificacion;
+    private SplitMenuButton btnTipoProducto;
 
     @FXML
-    private TableColumn columnApellido;
+    private TableColumn<Cliente, String> columDireccion;
 
     @FXML
-    private TableColumn columnDireccion;
+    private TableColumn<Cliente, String> columEmail;
 
     @FXML
-    private TableColumn  columnEmail;
+    private TableColumn<Cliente, String> columFechaNacimiento;
 
     @FXML
-    private TableColumn columnFechaNacimiento;
-
-
-    @FXML
-    private TableColumn  columnNit;
+    private TableColumn<Cliente, String> columIdentificacion;
 
     @FXML
-    private TableColumn  columnNombre;
+    private TableColumn<Cliente, String> columNit;
 
     @FXML
-    private TableColumn columnTelefono;
+    private TableColumn<Cliente, String> columNombre;
 
     @FXML
-    private TableColumn columnTipoPersona;
+    private TableColumn<Cliente, String> columTelefono;
 
     @FXML
-    private TableView<ClienteNatural> tableClientes;
+    private TableColumn<Cliente, String> columTipoPersona;
 
+    @FXML
+    private TableColumn<Cliente, String> columnApellido;
+
+    @FXML
+    private TableView<Cliente> tableClientes;
 
     @FXML
     private TextField txtApellido;
+
+    @FXML
+    private TextField txtCantidadDeExistencia;
+
+    @FXML
+    private TextField txtCodigo;
+
+    @FXML
+    private TextField txtDescripcion;
 
     @FXML
     private TextField txtDireccion;
@@ -105,33 +131,28 @@ public class Controller {
     @FXML
     private TextField txtTelefono;
 
+    @FXML
+    private TextField txtValorUnitario;
 
     @FXML
-    private Button btnActualizarP;
+    void initialize() {
+        this.columNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.columnApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        this.columIdentificacion.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
+        this.columDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        this.columTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        this.columTipoPersona.setCellValueFactory(new PropertyValueFactory<>("tipoCliente"));
+
+        tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+        });
+
+
+    }
 
     @FXML
-    private Button btnAgregarP;
+    void NaturalAction(ActionEvent event) {
 
-    @FXML
-    private Button btnEliminarP;
-
-    @FXML
-    private Button btnNuevoP;
-    @FXML
-    private TableColumn<ProductoEnvasado, String> columCodigo;
-
-    @FXML
-    private TableColumn<ProductoEnvasado, String> columnNombreProducto;
-
-    @FXML
-    private TableColumn<ProductoEnvasado,Double> columnValorUnitario;
-
-    @FXML
-    private TableColumn<ProductoEnvasado,Integer> columnCantidadExistencia;
-
-    @FXML
-    private TableColumn<ProductoEnvasado,String> columnTipoProducto;
-
+    }
 
     @FXML
     void actualizarClienteAction(ActionEvent event) {
@@ -139,10 +160,23 @@ public class Controller {
     }
 
     @FXML
+    void actualizarProductoAction(ActionEvent event) {
+
+    }
+
+    @FXML
     void agregarClienteAction(ActionEvent event) {
 
+    }
 
-        
+    @FXML
+    void agregarProductoAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void agregarTransaccionAction(ActionEvent event) {
+
     }
 
     @FXML
@@ -151,138 +185,48 @@ public class Controller {
     }
 
     @FXML
+    void eliminarProductoAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void eliminarTransaccionAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void gestionarTransaccionAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void juridicoAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void nuevaVentaAction(ActionEvent event) {
+
+    }
+
+    @FXML
     void nuevoClienteAction(ActionEvent event) {
-        try
-        {
-
-            natural.setTipoPersona("Natural");
-            natural.setNombre(txtNombre.getText());
-            natural.setIdentificacion(txtIdentificacion.getText());
-            natural.setTelefono(txtTelefono.getText());
-            natural.setApellido(txtApellido.getText());
-            natural.setDireccion(txtDireccion.getText());
-            natural.setEmail(txtEmail.getText());
-            natural.setFechaNacimiento(txtFechaNacimiento.getText());
-            if (!this.clienteNaturalBd.contains(natural))
-            {
-                clienteNaturalBd.add(natural);
-                this.tableClientes.setItems(clienteNaturalBd);
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("EROOR");
-                alert.setContentText("CLIENTE AGREGADO");
-                alert.showAndWait();
-            }
-            else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("EROOR");
-                alert.setContentText("USUARIO YA EXISTE");
-                alert.showAndWait();
-            }
-        }catch (Exception ex)
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("EROOR");
-            alert.setContentText("FORMATO INCORRECTO");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    void NaturalAction(ActionEvent event){
-  txtNit.setEditable(false);
-        txtFechaNacimiento.setEditable(true);
-        txtEmail.setEditable(true);
-
-
-
-    }
-    @FXML
-    void juridicoAction(ActionEvent event){
-        txtNit.setEditable(true);
-        txtFechaNacimiento.setEditable(false);
-        txtEmail.setEditable(false);
-
 
     }
 
     @FXML
-    void agregarProductoAction(ActionEvent event){
-
-    }
-    @FXML
-    void actualizarProductoAction(ActionEvent event){
-
-    }
-    @FXML
-    void nuevoProductoAction(ActionEvent event){
-
-    }
-    @FXML
-    void eliminarProductoAction(ActionEvent event){
+    void nuevoProductoAction(ActionEvent event) {
 
     }
 
-    @FXML
-    void initialize() {
-        assert btnActualizarC != null : "fx:id=\"btnActualizar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnAgregarC != null : "fx:id=\"btnAgregar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnEliminarC != null : "fx:id=\"btnEliminar\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnNuevoC != null : "fx:id=\"btnNuevo\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert btnTipoPersona != null : "fx:id=\"btnTipoPersona\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columIdentificacion != null : "fx:id=\"columIdentificacion\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnApellido != null : "fx:id=\"columnApellido\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnDireccion != null : "fx:id=\"columnDireccion\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnEmail != null : "fx:id=\"columnEmail\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnFechaNacimiento != null : "fx:id=\"columnFechaNacimiento\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnNit != null : "fx:id=\"columnNit\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnNombre != null : "fx:id=\"columnNombre\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnTelefono != null : "fx:id=\"columnTelefono\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert columnTipoPersona != null : "fx:id=\"columnTipoPersona\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert tableClientes != null : "fx:id=\"tableClientes\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtApellido != null : "fx:id=\"txtApellido\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtDireccion != null : "fx:id=\"txtDireccion\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtEmail != null : "fx:id=\"txtEmail\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtFechaNacimiento != null : "fx:id=\"txtFechaNacimiento\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtIdentificacion != null : "fx:id=\"txtIdentificacion\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtNit != null : "fx:id=\"txtNit\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtNombre != null : "fx:id=\"txtNombre\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        assert txtTelefono != null : "fx:id=\"txtTelefono\" was not injected: check your FXML file 'EmpresaVentaProductosView.fxml'.";
-        try
-        {
-            clienteNaturalBd = FXCollections.observableArrayList();
-            clienteJuridicoBd = FXCollections.observableArrayList();
-            productoPerecederoBd = FXCollections.observableArrayList();
-            productoEnvasadoBd = FXCollections.observableArrayList();
-            productoRefrigeradoBd = FXCollections.observableArrayList();
-            clienteJuridico = new ClienteJuridico();
-            envasado = new ProductoEnvasado();
-            perecedero = new ProductoPerecedero();
-            refrigerado = new ProductoRefrigerado();
-            transaciones = new Transacion();
-            natural = new ClienteNatural();
-            this.columnNombre.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("nombre"));
-            this.columnApellido.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("apellido"));
-            this.columIdentificacion.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("identificacion"));
-            this.columnDireccion.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("direccion"));
-            this.columnTelefono.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("telefono"));
-            this.columnEmail.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("email"));
-            this.columnFechaNacimiento.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("fechaNacimiento"));
-            /*this.columnNit.setCellValueFactory(new PropertyValueFactory<ClienteJuridico,String>("Nit"));
-            this.columnNombre.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("nombre"));
-            this.columnNombre.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("nombre"));
-            this.columnNombre.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("nombre"));
-            this.columnNombre.setCellValueFactory(new PropertyValueFactory<ClienteNatural,String>("nombre"));*/
-
-        }catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null,"Hay un error");
-        }
-
-
-
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+        tableClientes.getItems().clear();
+        tableClientes.setItems(getListaClientesData());
     }
 
+    public ObservableList<Cliente> getListaClientesData() {
+        listaClientesData.addAll(aplicacion.obtenerClientes());
+        return listaClientesData;
+    }
 }
