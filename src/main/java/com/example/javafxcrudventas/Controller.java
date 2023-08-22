@@ -205,10 +205,10 @@ public class Controller {
         this.columTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         this.columTipoPersona.setCellValueFactory(new PropertyValueFactory<>("tipoCliente"));
 
-        tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+        /*tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
 
 
-        });
+        });*/
         this.columnClienteV.setCellValueFactory(new PropertyValueFactory<>("Cliente"));
         this.columnCodigoProductoV.setCellValueFactory(new PropertyValueFactory<>("Codigo Producto"));
         this.columnIVA.setCellValueFactory(new PropertyValueFactory<>("IVA"));
@@ -219,14 +219,14 @@ public class Controller {
         this.columnProductoV.setCellValueFactory(new PropertyValueFactory<>("Producto"));
         this.columnSubtotal.setCellValueFactory(new PropertyValueFactory<>("Subtotal"));
 
-        tableVenta.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
+        /*tableVenta.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
 
 
         });
         tableDetalleVenta.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection,newSelection) -> {
 
 
-        });
+        });*/
 
 
 
@@ -288,7 +288,7 @@ public class Controller {
 
     @FXML
     void eliminarTransaccionAction(ActionEvent event) {
-        
+
     }
 
     @FXML
